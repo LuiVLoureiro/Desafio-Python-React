@@ -1,0 +1,37 @@
+-- Criando tabela de usuários
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    senha VARCHAR(50) NOT NULL,
+    endereco VARCHAR(50) NOT NULL
+);
+
+-- Criando tabela de produtos
+CREATE TABLE produtos (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    preco DECIMAL(10,2) NOT NULL,
+    popularidade INTEGER NOT NULL,
+    descricao VARCHAR(50) NOT NULL
+);
+
+-- Criando tabela de carrinhos
+CREATE TABLE carrinho (
+    id SERIAL PRIMARY KEY,
+    usuarioid INTEGER REFERENCES usuarios(id) NOT NULL,
+    produtoid INTEGER REFERENCES produtos(id) NOT NULL,
+    quantidade INTEGER NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+    frete DECIMAL(10,2) NOT NULL
+);
+
+-- Criando tabela de pedidos
+CREATE TABLE pedido (
+    id SERIAL PRIMARY KEY,
+    usuarioid INTEGER REFERENCES usuarios(id) NOT NULL,
+    produtoid INTEGER REFERENCES produtos(id) NOT NULL,
+    quantidade INTEGER NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+    frete DECIMAL(10,2) NOT NULL,
+    data DATE NOT NULL
+);
