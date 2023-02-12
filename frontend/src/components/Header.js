@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Navbar, Nav, NavDropdown, Form, Button } from 'react-bootstrap'
+import { BiCart } from 'react-icons/bi'
 
 const Header = () => {
     return (
@@ -17,7 +18,10 @@ const Header = () => {
             <Nav.Link style={{ color: 'white' }} href="#action1">Loja</Nav.Link>
             <Nav.Link style={{ color: 'white' }} href="#action2">Cadastro</Nav.Link>
             <Nav.Link style={{ color: 'white' }} href="#action2">Meus Pedidos</Nav.Link>
+            
           </Nav>
+
+
           <Form className="d-flex">
             <Form.Control
               type="search"
@@ -25,7 +29,8 @@ const Header = () => {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <BiCart style={{ marginLeft: '10px' }} size="3rem"/>
+            
           </Form>
         </Navbar.Collapse>
       </Container>
