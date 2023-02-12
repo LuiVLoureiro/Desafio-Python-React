@@ -1,5 +1,37 @@
 import React from "react";
 import { Button, Card } from 'react-bootstrap'; 
+import { BsCartPlus } from 'react-icons/bs';
+
+
+const addToCart = (props) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const usuarioId  = urlParams.get('id');
+    const usuarioNome  = urlParams.get('nome');
+    if (usuarioId === null || usuarioNome === null) {
+      alert("Você não está logado! Por favor cadastre-se para adicionar produtos ao carrinho.");
+      window.location.href = "/cadastro-usuario";
+    } else {
+      const carrinho = {
+        usuarioId: urlParams.get('id'),
+        usuarioNome: urlParams.get('nome'),
+        produtoId: props.produtoid,
+        quantidade: props.quantidade,
+        subtotal: props.subtotal,
+        frete: props.frete
+      }
+    
+      fetch('http://localhost:8000/api/tasks/carrinhodb/', {
+          method: 'POST',
+          body: JSON.stringify(carrinho),
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+      }
+    }
 
 const Cards = (props) => {
     
@@ -16,11 +48,21 @@ const Cards = (props) => {
         <Card.Body>
             <Card.Title style={{color:'white', borderBottom: 'solid 1px white', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap'}}>{props.nome}</Card.Title>
             <Card.Title style={{color:'white'}}>R$ <span className="h3">{props.preco}</span></Card.Title>
-            <Button variant="primary">Adicionar ao Carrinho</Button>
+            <Button 
+                onClick={()=> addToCart(props)}
+                variant="primary">
+                <BsCartPlus size="1.5rem"
+                /> 
+                Adicionar ao Carrinho
+                
+            </Button>
         </Card.Body>
         </Card>
     </div>
     )
 };
+
+
+
 
 export default Cards

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Navbar, Nav, NavDropdown, Form, Button } from 'react-bootstrap'
+import { Container, Navbar, Nav, Form } from 'react-bootstrap'
 import { BiCart } from 'react-icons/bi'
 
 const Header = () => {

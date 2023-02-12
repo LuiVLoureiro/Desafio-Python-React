@@ -13,3 +13,9 @@ class ProdutoSerializer(serializers.ModelSerializer):
         model = Produto
         fields = ('id', 'nome', 'preco', 'popularidade', 'descricao',)
         read_only_fields = ('id',)
+
+class CarrinhoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Carrinho
+        fields = ('id', 'usuarioid', 'produtoid', 'quantidade', 'subtotal', 'frete',)
+        read_only_fields = ('id',)

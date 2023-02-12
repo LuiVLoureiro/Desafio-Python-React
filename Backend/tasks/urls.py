@@ -10,4 +10,9 @@ urlpatterns = [
         
     path('tasks/produtodb/', views.ProdutoListAPIView.as_view(),
         name='produto-list'),
+    
+    path('tasks/carrinhodb/', views.CarrinhoListAPIView.as_view(), 
+    name='carrinho-list')
+
+
 ]
