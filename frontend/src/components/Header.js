@@ -28,9 +28,11 @@ const Header = () => {
               placeholder="Procurar Jogo"
               className="me-2"
               aria-label="Search"
+              style={{textAlign: 'center'}}
             />
+            <Nav.Link>
             <BiCart style={{ marginLeft: '10px' }} size="3rem"/>
-            
+            </Nav.Link>
           </Form>
         </Navbar.Collapse>
       </Container>
