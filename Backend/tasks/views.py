@@ -1,4 +1,14 @@
-from django.shortcuts import render
-from .models import Usuario, Produto, Carrinho, Pedido
+from rest_framework import mixins, generics, permissions
 
-# Create your views here.
+from .models import Usuario, Produto
+from .serializers import UsuarioSerializer, ProdutoSerializer
+
+class UsuarioListAPIView(generics.ListAPIView):
+    serializer_class = UsuarioSerializer
+    permission_classes = [permissions.AllowAny]
+    queryset = Usuario.objects.all()
+
+class ProdutoListAPIView(generics.ListAPIView):
+    serializer_class = ProdutoSerializer
+    permission_classes = [permissions.AllowAny]
+    queryset = Produto.objects.all()

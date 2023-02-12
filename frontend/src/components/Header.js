@@ -16,7 +16,7 @@ const Header = () => {
             navbarScroll
           >
             <Nav.Link style={{ color: 'white' }} href="#action1">Loja</Nav.Link>
-            <Nav.Link style={{ color: 'white' }} href="#action2">Cadastro</Nav.Link>
+            <Nav.Link style={{ color: 'white' }} href="#action2">Login/Cadastro</Nav.Link>
             <Nav.Link style={{ color: 'white' }} href="#action2">Meus Pedidos</Nav.Link>
             
           </Nav>
